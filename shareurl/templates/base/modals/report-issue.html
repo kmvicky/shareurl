@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load l10n %}
+<div class="ui small modal report-issue">
+	<i class="close icon"></i>
+  	<div class="uppercase header">
+  		{% trans 'Report an issue' %}
+  	</div>
+  	<div class="content">
+  		<form class="ui fluid form">
+
+		  	<div class="field">
+		    	<input type="text" name="title" required="required">
+		    	<label>{% trans 'Title' %}</label>
+			    <i class="bottom-bar"></i>
+		  	</div>
+
+		  	<div class="field">
+		    	<input type="text" name="description" required="required">
+		    	<label>{% trans 'Description' %}</label>
+			    <i class="bottom-bar"></i>
+		  	</div>
+
+		  	<div class="field">
+	  			<input class="ui tiny uppercase positive action submit button" type="submit" value="{% trans 'Send' %}">
+	  		</div>
+		</form>		
+  	</div>
+</div>

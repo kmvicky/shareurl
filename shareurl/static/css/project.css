@@ -1,0 +1,65 @@
+/* These styles are generated from project.scss. */
+
+html {
+
+	height: 90vh;
+}
+
+.alert-debug {
+  color: black;
+  background-color: white;
+  border-color: #d6e9c6;
+}
+
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.ui.attached.menu {
+	height:65px; 
+	margin-top:0;
+	background-color: #2b699d; 
+}
+
+.ui.segment {
+
+	margin: 20px;
+}
+
+.sidebar-container {
+	margin-top: 100px;
+}
+
+.sidebar-h4 {
+	color: white;
+}
+
+.pusher-content {
+
+	margin-top: 80px;
+
+}
+
+.ui.grid.links, .link-creation-form {
+	margin: 20px;
+}
+
+.page-header {
+
+	color: white;
+	padding: 24px;
+	font-size: 1em;
+	/*margin: 20px;*/
+	line-height: 0.8em;
+	background-color: #2E3D54;
+}
+
+.add-button {
+
+	color: white;
+	float: right;
+	font-size: 1em;
+	text-decoration: underline;
+}

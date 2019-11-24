@@ -1,0 +1,56 @@
+{% load i18n %}
+{% load l10n %}
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>ShareUrl - {% block title %}{% endblock title %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="{% static 'vendor/fomentic/semantic.min.css' %}">
+
+		<link rel="stylesheet" href="{% static 'css/project.css' %}">
+		
+		{% block css %}
+			<!--Include your custom css by extending this block-->
+		{% endblock css %}
+
+	</head>
+
+	<body>
+		{% block left_sidebar %}
+			{% include 'base/sidebar.html' %}
+		{% endblock left_sidebar %}
+
+		<div class="pusher">
+			
+			{% include "base/header.html" %}
+			
+			<div class="pusher-content">
+				{% block content %}
+					
+				{% endblock content %}
+			</div>
+
+			{% include "base/footer.html" %}
+			
+		</div>
+
+	</body>
+
+	<!--Third party dependencies-->
+	<script src="{% static 'vendor/jquery/jQuery.v3.1.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'vendor/jquery/jquery-ui.min.js' %}"></script>
+	
+	<script src="{% static 'vendor/fomentic/semantic.min.js' %}"></script>
+	<script src="{% static 'js/project.js' %}"></script>
+
+	{% block jsdependencies %}
+	{% endblock jsdependencies %}
+
+	{% block javascript %}
+	{% endblock javascript %}
+</html>

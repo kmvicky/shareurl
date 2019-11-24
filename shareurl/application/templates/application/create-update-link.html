@@ -1,0 +1,45 @@
+{% extends "base/base.html" %}
+
+{% block title %} Link Creation {% endblock %}
+
+{% block content %}
+
+
+<div class="ui segment">
+	
+	<div class="page-header">
+		<h5>CREATE AND SHARE A TEXT LINK</h5>
+	</div>
+
+	<form class="ui form link-creation-form" action="{{action}}" method="post">
+
+		<div class="two required fields">
+			
+			<div class="required field">
+				<label>Title</label>
+				<input type="text" name="title" {% if link %} value="{{link.title}}" {% endif %}>
+				
+			</div>
+
+			<div class="field">
+				<label>Secret Key(Length should be multiple of 16)</label>
+				<input type="text" name="secretKey" {% if link and link.secret_key %} value="{{link.secret_key}}" {% endif %}>
+			</div>
+			
+		</div>
+
+		<div class="required field">
+			<label>Text</label>
+			<textarea name="text">{% if link %} {{link.original_text}} {% endif %}</textarea>
+		</div>
+
+		<div class="field">
+			{% csrf_token %}
+			<input type="submit" class="ui tiny uppercase positive action submit button" value="create">
+		</div>
+	</form>
+</div>
+
+	
+
+{% endblock %}

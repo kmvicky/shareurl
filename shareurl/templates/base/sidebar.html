@@ -1,0 +1,38 @@
+{% load i18n %}
+{% load l10n %}
+{% load static from staticfiles %}
+
+<div class="ui left sidebar inverted vertical labeled page menu">
+
+	{% if not request.user.is_authenticated %}
+
+		<div class="sidebar-container">
+			<center>
+				<img class="ui circular image" height="70px" src="{% static 'images/logger_picure.png' %}">
+					<h4 class="sidebar-h4">Welcome Guest</h4>
+			</center>
+		</div><br>
+		<hr>
+
+		<a class="item" href="{% url 'application:login' %}">
+			<i class="home icon"></i> Login/Sign Up
+		</a>
+
+	{% else %}
+		<div class="sidebar-container">
+			<center>
+				<img class="ui circular image" height="70px" src="{% static 'images/logger_picure.png' %}">
+					<h4 class="sidebar-h4">{{request.user.get_full_name}}<br>
+					{{request.user.email}}</h4>
+			</center>
+		</div><br>
+		<hr>
+		
+		<a class="item" href="{% url 'application:links' %}">
+			<i class="user icon"></i>Links
+		</a>
+		<a class="item" href="{% url 'application:logout' %}">
+			<i class="log out icon"></i> Log Out
+		</a>
+	{% endif %}
+</div> 

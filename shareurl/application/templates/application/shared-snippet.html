@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+
+{% block title %} Shared snippets {% endblock %}
+
+{% block content %}
+
+	<div class="ui segment">
+
+		<textarea></textarea>
+
+		<form class="ui form" method="GET", action="">
+			
+			<div class="field">
+				<label>Enter Secret Key</label>
+				<input type="text" name="secretKey">
+			</div>
+
+			<div class="field">
+				<input type="submit" class="ui tiny uppercase positive action submit button" value="show">
+			</div>
+
+		</form>
+	</div>
+
+{% endblock %}

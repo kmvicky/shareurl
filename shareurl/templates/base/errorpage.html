@@ -1,0 +1,39 @@
+{% load staticfiles i18n %}
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Error</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="A New HR">
+		<meta name="author" content="Rolling Arrays">
+		<meta name="keywords" content="HR, hr, saas, transformation, lms, claims, payroll, goals, competence, hostelonease">
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<![endif]-->
+
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logos/radice.ico' %}" />
+
+		<link rel="stylesheet" href="{% static 'fonts/OpenSans/opensans.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/Roboto/roboto.css' %}">
+		<link rel="stylesheet" href="{% static 'vendor/semanticui/semantic.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/error.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/themes/default.min.css' %}">
+	</head>
+	<body>
+		<div class="box">
+			<div class="title">Error</div>
+			<div class="message">{{ exception }}</div>
+			<div class="button">
+				<a href="{{ request.META.HTTP_REFERRER }}" class="ui small uppercase button">Back</a>
+			</div>
+		</div>
+	</body>
+	<script src="{% static 'vendor/jquery/jQuery.v3.1.1.min.js' %}"></script>
+	<script src="{% static 'js/production/base/errorpage.min.js' %}"></script>
+</html>

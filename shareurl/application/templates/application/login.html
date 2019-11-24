@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+	<div class="ui grid login-form">
+
+		<div class="three wide column"></div>
+		<div class="ten wide column">
+			
+			<form class="ui form" action="{{action}}" method="post">
+
+				<div class="required field">
+					<label>Username</label>
+					<input type="text" name="username">
+				</div>
+
+				<div class="required field">
+					<label>Password</label>
+					<input type="password" name="password">
+				</div>
+
+				<div class="field">
+					{% csrf_token %}
+					<input type="submit" class="ui tiny uppercase positive action submit button" value="Login">
+
+					<a class="ui tiny uppercase positive button" href="{% url 'application:register' %}">Register</a>
+				</div>
+			</form>
+
+		</div>
+		<div class="three wide column"></div>
+		
+	</div>
+	
+
+{% endblock %}

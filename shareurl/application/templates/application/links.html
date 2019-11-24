@@ -1,0 +1,90 @@
+{% extends "base/base.html" %}
+
+{% block title %} Links {% endblock %}
+
+{% block content %}
+
+	<div class="ui segment">
+		<div class="page-header">
+			
+			<a class="ui tiny uppercase add-button" href="{% url 'application:create-link' %}">
+				<i class="plus icon"></i>
+				CREATE LINK
+			</a>
+
+		</div>
+
+		{% if links %}
+
+			<table class="ui celled table">			
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Link</th>
+						<th>Options</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for link in links %}
+						<tr>
+							<td>
+								{{link.title}}
+							</td>
+							<td>
+
+								{% if link.secret_key %}
+									<a class="show-text" data-uuid="{{link.uuid}}" href="">
+										SHOW TEXT
+									</a>
+
+								{% else %}
+									{{link.original_text}}
+								{% endif %}
+							</td>
+							<td>
+								<a href="{% url 'application:update-link' link.uuid %}">
+									<i class="pencil icon"></i>
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		{% else %}
+
+			<div class="ui fluid message"> No links created</div>
+
+		{% endif %}
+
+	</div>
+
+	<div class="ui small modal">
+		<div class="header">
+			Shared Snippet
+		</div>
+		<div class="content">
+			<form class="ui form sharedSnippet" method="GET">
+				
+				<div class="field">
+					<label>Secret Key(Length should be multiple of 16)</label>
+					<input type="text" name="secretKey">
+				</div>
+
+				<div class="uuid-clicked" data-uuid=""></div>
+				<div class="original-text"></div>
+
+				<div class="ui hidden divider"></div>
+				
+				<div class="field">
+					{% csrf_token %}
+					<input type="submit" class="ui tiny uppercase positive action submit button" value="SHOW">
+				</div>
+			
+			</form>
+		</div>
+	</div>
+
+
+{% endblock %}
